@@ -1,14 +1,15 @@
 MAX =5
 stack=[None]*MAX
 top=-1
-def push(item):
+def push(array_):
     global top
     if (top==MAX-1):
         print("stack is full")
     else:
-        top+=1
-        stack[top]=item
-        print("element add in stack is succeesful..")
+        for i in array_:
+            top+=1
+            stack[top]=i
+        print("Elements add in stack is succeesful..")
         print(stack)
 def pop():
     global top
@@ -16,12 +17,29 @@ def pop():
         print("stack is empty")
     else:
         item=stack[top]
-        stack[top]==None
+        stack[top]=None
         top=top-1
         print(item,"poping operation is succesfull")
+        print(stack)
+def peek():
+    global top
+    if top==-1:
+        print("stack is empty")
+    else:
+        print("Top element:",stack[-1])
 
-       
+def display():
+    global top
+    if top==-1:
+        print("Stack is empty")
+    else:
+        for i in stack:
+            print(i)
 
-push(10)
-push(20)
+array_=[10,20,30,30,50]
+push(array_)
+
+display()
+
 pop()
+display()
