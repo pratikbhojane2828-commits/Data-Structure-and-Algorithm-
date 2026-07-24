@@ -1,0 +1,54 @@
+#include<iostream>
+#include<conio.h>
+#include<stdlib.h>
+
+#define  MAX_SIZE 5
+using namespace std;
+
+int main()
+{
+    int item,choice;
+    int s[MAX_SIZE];
+    int top=-1;
+    cout<<"simple stack implementation!!!!!!!!";
+    
+    do
+    {
+        cout<<"\n\nstack main menu!!!!!!";
+        cout<<"\n1.push\n2.pop\n3.Display\n4.exit";
+        cout<<"\nenter your choice:";
+        cin>>choice;
+
+        switch(choice)
+        {
+            case 1:
+            if(top==MAX_SIZE-1)
+                cout<<"stack is full";
+                else{
+                    cout<<"enter the value for push:";
+                    cin>>item;
+                    top++;
+                    cout<<"\nposition:"<<top<<" \npushed value:"<<item;
+                    s[top]=item;
+                }
+                break;
+                case 2:
+                if(top==-1)
+                    cout<<"\nstack is empty";
+                    else{
+                        cout<<"\nposition:"<<top<<"\npopped value:"<<s[top];
+                        top--;
+                    }
+                        break;
+                case 3:
+                cout<<"\nstack size:"<<top+1;
+                for(int i=top;i>-1;i--)
+                    cout<<"\nposition:"<<i<<"\nvalue:"<<s[i];
+                    break;
+                case 4:
+                cout<<"Exit suceesfull!!!!!!";
+                }
+        }
+        while(choice>4);
+        return 0;
+};
