@@ -1,0 +1,53 @@
+max=5
+queue=[None]*max
+front=-1
+rear=-1
+def enqueue():
+    global front
+    global rear
+    if rear==max-1:
+        print("queue is full")
+    
+    value=int(input("enter your value for insert:"))
+    if(front==-1):
+        front=0
+    rear+=1
+    queue[rear]=value
+    print("insetion of element is succesfull")
+   
+
+
+def dequeue():
+    global front
+    global rear
+    global queue
+    if(front==-1 or front>rear):
+        print("queue is underflow or empty")
+        front=rear=-1
+
+    print(f"{queue[front]} element is deleted")
+    front+=1
+    if(front>rear):
+        rear=front=-1
+
+def display():
+    global front
+    global rear
+    if(front==-1):
+        print("Queue is empty")
+    else:
+        print("queue element is=")
+        for i in queue:
+            print(i)
+
+print("!!!!welcome in queue operation!!!")
+print("please select your operation:")
+print("\n1.Enqueu\n2.Dequeue\n3.diaplay")
+user_input=int(input("please enter your operation="))
+
+if user_input==1:
+    enqueue()
+elif user_input==2:
+    dequeue()
+elif user_input==3:
+    display()
