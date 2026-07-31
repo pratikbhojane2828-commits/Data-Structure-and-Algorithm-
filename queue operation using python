@@ -39,15 +39,26 @@ def display():
         print("queue element is=")
         for i in queue:
             print(i)
+while(True):
 
-print("!!!!welcome in queue operation!!!")
-print("please select your operation:")
-print("\n1.Enqueu\n2.Dequeue\n3.diaplay")
-user_input=int(input("please enter your operation="))
+    print("!!!!welcome in queue operation!!!")
+    print("please select your operation:")
+    print("\n1.Enqueu\n2.Dequeue\n3.diaplay\n4.exit")
+    user_input=int(input("please enter your operation="))
 
-if user_input==1:
-    enqueue()
-elif user_input==2:
-    dequeue()
-elif user_input==3:
-    display()
+    if user_input==1:
+        enqueue()
+    elif user_input==2:
+        dequeue()
+    elif user_input==3:
+        display()
+    elif user_input==4:
+        print("exit succesfull")
+        break
+
+
+
+    s=input("if you want to continue or not (y/Y)=")
+    if s=="y" or s=="Y":
+        pass
+    
