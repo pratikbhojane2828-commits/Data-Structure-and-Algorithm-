@@ -1,0 +1,58 @@
+class node:
+    def __init__(self,data):
+        self.data=self.data
+        self.next=None 
+def create():
+    global head
+    global next
+    data=int(input("enter your value to create="))
+    new=node(data)
+    if head==None:
+        head=new
+    else:
+        temp=head
+        while temp.next != None:
+            temp=temp.next
+        temp.next=new
+
+def insert():
+    global head
+    data=int(input("enter the value to insert="))
+    new=node(data)
+    new.next=head
+    head=new
+
+def delete():
+    global head
+    if head==None:
+        print("list is empty")
+    else:
+        head=head.next
+def display():
+    temp=head
+    while temp!=None:
+        print(temp.data)
+        temp=temp.next
+    print("None")
+    
+while True:
+    print("!!!!welcome in linklist!!!!")
+    print("1.create\n2.insertion\n3.deletion\n4.display\n5.exit")
+    n=int(input("enter your operation number for linklist:"))
+
+    if n==1:
+        create()
+    elif n==2:
+        insert()
+    elif n==3:
+        delete()
+    elif n==4:
+        display()
+    elif n==5:
+        print("exit successfull")
+        break
+    
+    s=input("if you want to continue enter(y/Y)=")
+    if s=="y" or s=="Y":
+        pass
+    
