@@ -1,0 +1,39 @@
+class node:
+    def __init__(self,data):
+        self.data=data
+        self.left=None
+        self.right=None
+        
+class binarytree:
+    def __init__(self):
+        self.root=None
+    def createtree(self):
+        value =int(input("Enter the value of the node(-1 for no node):"))
+        if value==-1:
+            return None
+        
+        newnode=node(value)
+        print("Enter the left child of :",value)
+        newnode.left=self.createtree()
+        print("Enter the right child of:",value)
+        newnode.right=self.createtree()
+        
+        return newnode
+    def buidTree(self):
+        print("create binary treee:")
+        self.root=self.createtree()
+        
+    def inorder(self,temp):
+        if temp is None:
+            return;
+        self.inorder(temp.left)
+        print(temp.data,end=" ")
+        self.inorder(temp.right)
+        
+        
+tree=binarytree()
+print("="*20)
+print("BINARY TREE MENU")
+print("="*20)
+
+print()
