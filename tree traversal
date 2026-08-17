@@ -1,0 +1,92 @@
+#include<iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* left;
+    Node* right;
+};
+
+class BinaryTree
+{
+    public:
+    Node* root;
+
+    BinaryTree() {
+        root = nullptr;
+
+    }
+    Node* createtree() {
+        int value;
+        cout << "Enter data (-1 for no node):";
+        cin>>value;
+        if (value == -1) {
+            return nullptr;
+}
+    Node *newNode = new Node;
+    newNode -> data = value;
+
+    cout << "Enter left child of:" <<value<<endl;
+    newNode ->left = createtree();
+    cout << "Enter the right child of:"<<value<<endl;
+     newNode -> right = createtree();
+
+     return newNode;
+    }
+
+    void BuildTree(){
+        cout<<"\ncreate binary tree"<<endl;
+        root = createtree();
+
+    }
+    void inorder(Node* temp){
+        if(temp == nullptr){
+            return;
+
+        }
+        inorder(temp->left);
+        cout<<temp->data<<" ";
+        inorder(temp->right);
+
+    }
+    void displayInorder(){
+        cout<<"Inorder traversal of binary tree is :"<<endl;
+        inorder(root);
+        cout<<endl;
+
+    }
+};
+
+int main()
+{
+BinaryTree tree;
+ int choice;
+ do{
+    cout<<"\n====================================="<<endl;
+    cout<<"\n BINARY TREE MENU"<<endl;
+    cout<<"\n====================================="<<endl;
+
+    cout<<"\n 1. Create Binary Tree"<<endl;
+    cout<<"\n 2. Display Inorder Traversal"<<endl;
+    cout<<"\n 3. Exit"<<endl;
+    cout<<"\n Enter your choice : ";    
+    cin>>choice;
+    switch(choice){ 
+        
+        case 1:
+            tree.BuildTree();
+            break;
+        case 2:
+            tree.displayInorder();
+            break;
+        case 3:
+            cout<<"\n Exiting..."<<endl;
+            break;
+        default:
+            cout<<"\n Invalid choice! Please try again."<<endl;
+    }
+ }while (choice !=3);
+ 
+    return 0;
+ 
+}
