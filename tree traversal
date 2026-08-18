@@ -39,6 +39,15 @@ class BinaryTree
         root = createtree();
 
     }
+    void preorder(Node* temp){
+        if(temp==nullptr){
+            return;
+        }
+        cout<<temp->data<<" ";
+        preorder(temp->left);
+        preorder(temp->right);
+
+    }
     void inorder(Node* temp){
         if(temp == nullptr){
             return;
@@ -49,12 +58,35 @@ class BinaryTree
         inorder(temp->right);
 
     }
+    
+    void postorder(Node* temp){
+        if(temp==nullptr){
+            return;
+        }
+       
+        preorder(temp->left);
+        preorder(temp->right);
+        cout<<temp->data<<" ";
+
+    }
+    void displaypreorder(){
+        cout<<"preorder traversal of binary tree is:"<<endl;
+        preorder(root);
+        cout<<endl;
+
+    }
     void displayInorder(){
         cout<<"Inorder traversal of binary tree is :"<<endl;
         inorder(root);
         cout<<endl;
 
+
     }
+    void displaypostorder(){
+        cout<<"preorder traversal of binary tree is:"<<endl;
+        preorder(root);
+        cout<<endl;
+}
 };
 
 int main()
@@ -68,7 +100,9 @@ BinaryTree tree;
 
     cout<<"\n 1. Create Binary Tree"<<endl;
     cout<<"\n 2. Display Inorder Traversal"<<endl;
-    cout<<"\n 3. Exit"<<endl;
+    cout<<"\n 3. Display preorder Traversal"<<endl;
+    cout<<"\n 4. Display postorder Traversal"<<endl;
+    cout<<"\n 5. Exit"<<endl;
     cout<<"\n Enter your choice : ";    
     cin>>choice;
     switch(choice){ 
@@ -80,6 +114,12 @@ BinaryTree tree;
             tree.displayInorder();
             break;
         case 3:
+            tree.displaypreorder();
+            break;
+        case 4:
+            tree.displaypostorder();
+            break;
+        case 5:
             cout<<"\n Exiting..."<<endl;
             break;
         default:
