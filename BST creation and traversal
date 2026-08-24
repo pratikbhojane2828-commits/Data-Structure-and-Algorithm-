@@ -1,0 +1,89 @@
+// Online C++ compiler to run C++ program online
+#include<iostream>
+#include<stack>
+using namespace std;
+
+class Node
+{
+public:
+int data;
+Node *right;
+Node *left;
+
+Node(int value){
+    data=value;
+    left=nullptr;
+    right=nullptr;
+
+}
+};
+
+class BST {
+    private:
+    Node*root;
+    Node* insert(Node*root,int value)
+    {
+        if(root==nullptr){
+            return new Node(value);
+
+        }
+        if(value<root->data){
+            root->left=insert(root->left,value);
+        }
+        else if (value>root->data){
+            root->right=insert(root->right,value);
+        }
+        else{
+            cout<<"duplicate value is not inserted\n";
+        }
+        return root;
+    }
+    public:
+
+BST()
+{
+    root=nullptr;
+}
+    void createBST()
+    {
+        int n,value;
+        cout<<"enter the number of nodes:";
+        cin>>n;
+        cout<<"enter the node value:\n";
+        for(int i =1;i<=n;i++){
+            cin>>value;
+            root=insert(root,value);
+        }
+    }
+    void inordernonrecursive(){
+        stack<Node*>S;
+        Node* current=root;
+        cout<<"Non recursive inorder traversal:";
+
+        while (current !=nullptr || !S.empty())
+        {
+            while(current !=nullptr){
+            S.push(current);
+            current=current->left;
+}
+ current=S.top();
+        S.pop();
+        cout<<current->data<<" ";
+        current=current->right;
+        
+         
+        
+        }
+
+cout<<endl;
+       
+    }
+   
+
+};
+int main(){
+  BST tree;
+  tree.createBST();
+  tree.inordernonrecursive();
+  return 0; 
+}
