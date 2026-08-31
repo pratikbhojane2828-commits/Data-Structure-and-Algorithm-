@@ -1,14 +1,14 @@
 MAX =5
 stack=[None]*MAX
 top=-1
-def push(array_):
+def push():
     global top
     if (top==MAX-1):
         print("stack is full")
     else:
-        for i in array_:
-            top+=1
-            stack[top]=i
+        n1=int(input("enter the number for push in stack:"))
+        top+=1
+        stack[top]=n1
         print("Elements add in stack is succeesful..")
         print(stack)
 def pop():
@@ -35,11 +35,36 @@ def display():
     else:
         for i in stack:
             print(i)
+while(True):
 
-array_=[10,20,30,30,50]
-push(array_)
+    print("welcome to stack implementaion!!!!!!")
+    print("please select your operation:")
+    print("1.push\n2.pop\n3.display\n4.exit")
 
-display()
+    n=int(input("please enter your operation number:"))
+    if n==1:
+        push()
+    elif n==2:
+        pop()
+    elif n==3:
+        display()
+    elif n==4:
+        print("exit successfully")
+        break
+    s=input("if you want to continue or not:(yes or no):")
+    if s.lower()=="yes":
+        continue
+    else:
+        break
 
-pop()
-display()
+
+
+
+
+
+
+
+
+
+
+
