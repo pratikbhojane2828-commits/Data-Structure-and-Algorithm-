@@ -66,6 +66,18 @@ BST()
             S.push(current);
             current=current->left;
 }
+ void preordernonrecursive(){
+        stack<Node*>S;
+        Node* current=root;
+        cout<<"Non recursive preorder traversal:";
+
+        while (current !=nullptr || !S.empty())
+        {
+            while(current !=nullptr){
+            cout<<current->value
+            S.push(current);
+            current=current->left;
+}
  current=S.top();
         S.pop();
         cout<<current->data<<" ";
